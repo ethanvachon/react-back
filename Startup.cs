@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
+using react_back.Repositories;
 using react_back.Services;
 
 namespace react_back
@@ -39,7 +40,11 @@ namespace react_back
     });
 
       services.AddTransient<ProfilesService>();
-      //   services.AddTransient<ProfilesRepository>();
+      services.AddTransient<ProfilesRepository>();
+      services.AddTransient<PostsService>();
+      services.AddTransient<PostsRepository>();
+      services.AddTransient<CommentsService>();
+      services.AddTransient<CommentsRepository>();
 
       services.AddCors(options =>
           {
