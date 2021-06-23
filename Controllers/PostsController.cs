@@ -54,7 +54,7 @@ namespace react_back.Controllers
       {
         Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
         newPost.CreatorId = userInfo.Id;
-        Post post = _ps.Post(newPost);
+        Post post = _ps.Create(newPost);
         post.Creator = userInfo;
         return Ok(post);
       }
@@ -102,7 +102,7 @@ namespace react_back.Controllers
     {
       try
       {
-        return Ok(_cs.GetByQuestion(id));
+        return Ok(_cs.GetByPost(id));
       }
       catch (System.Exception e)
       {

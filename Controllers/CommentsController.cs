@@ -23,20 +23,7 @@ namespace react_back.Controllers
     {
       try
       {
-        return Ok(_cs.Get());
-      }
-      catch (System.Exception e)
-      {
-        return BadRequest(e.Message);
-      }
-    }
-
-    [HttpGet("{id}")]
-    public ActionResult<Comment> Get(int id)
-    {
-      try
-      {
-        return Ok(_cs.GetOne(id));
+        return Ok(_cs.GetAll());
       }
       catch (System.Exception e)
       {
