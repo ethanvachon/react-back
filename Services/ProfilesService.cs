@@ -9,5 +9,20 @@ namespace react_back.Services
     {
       throw new NotImplementedException();
     }
+
+    internal object GetAll()
+    {
+      throw new NotImplementedException();
+    }
+
+    internal Profile GetProfileById(string id)
+    {
+      throw new NotImplementedException();
+    }
+
+    internal object Edit(Profile newProfile)
+    {
+      throw new NotImplementedException();
+    }
   }
 }
