@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Dapper;
 using react_back.Models;
 
@@ -35,7 +36,16 @@ namespace react_back.Repositories
 
     internal Comment GetOne(int id)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      SELECT 
+      c.*,
+      pr.*,
+      p.*
+      FROM comments c
+      JOIN posts p ON c.postId = p.id
+      JOIN profiles pr ON c.creatorId = pr.id
+      WHERE id = @id";
+      return _db.Query<Comment, Post, Profile, Comment>(sql, (comment, post, profile) => { comment.Post = post; comment.Creator = profile; return comment; }, new { id }, splitOn: "id").FirstOrDefault();
     }
 
     internal int Post(Comment newComment)
