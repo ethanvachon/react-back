@@ -62,6 +62,7 @@ namespace react_back
           });
 
       services.AddControllers();
+      services.AddScoped<System.Data.IDbConnection>(x => CreateDbConnection());
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "react_back", Version = "v1" });
