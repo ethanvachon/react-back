@@ -41,7 +41,7 @@ namespace react_back.Repositories
     internal int Create(Post newPost)
     {
       string sql = @"
-      INSERT INTO questions
+      INSERT INTO posts
       (time, body, creatorId)
       VALUES 
       (@Time, @Body, @CreatorId);
