@@ -66,7 +66,7 @@ namespace react_back.Controllers
 
     [HttpPut("{id}")]
     [Authorize]
-    public async System.Threading.Tasks.Task<ActionResult<Post>> EditAsync(int id, [FromBody] Post newPost)
+    public async System.Threading.Tasks.Task<ActionResult<Post>> Edit(int id, [FromBody] Post newPost)
     {
       try
       {
@@ -84,7 +84,7 @@ namespace react_back.Controllers
 
     [HttpDelete("{id}")]
     [Authorize]
-    public async System.Threading.Tasks.Task<ActionResult<string>> DeleteAsync(int id)
+    public async System.Threading.Tasks.Task<ActionResult<string>> Delete(int id)
     {
       try
       {
@@ -97,8 +97,8 @@ namespace react_back.Controllers
       }
     }
 
-    [HttpGet("{id}/answers")]
-    public ActionResult<IEnumerable<Comment>> GetAnswers(int id)
+    [HttpGet("{id}/comments")]
+    public ActionResult<IEnumerable<Comment>> GetComments(int id)
     {
       try
       {
